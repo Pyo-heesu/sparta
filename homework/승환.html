@@ -1,0 +1,232 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Pyo-heesu 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+1K3H
+/
+spartacodingclub
+1
+00
+ Code
+ Issues 0
+ Pull requests 0 Actions
+ Projects 0
+ Wiki
+ Security 0
+ Insights
+spartacodingclub/myproject/원페이지 쇼핑몰 개인심화.html
+@1K3H 1K3H Update 원페이지 쇼핑몰 개인심화.html
+fcf2eb2 3 days ago
+189 lines (169 sloc)  6.89 KB
+  
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원페이지 쇼핑몰 개인심화</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Sunflower', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-family: 'Black Han Sans', sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .button {
+            text-align: center;
+        }
+
+        .wrapper {
+            width: 600px;
+            margin: 20px auto;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: red;
+        }
+
+        .finish {
+            color: blue;
+            margin-bottom: 1rem;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            let kyochon = ["허니콤보", "레드콤보", "오리지널"];
+            let nene = ["스노윙", "파닭"];
+            let bbq = ["황금올리브", "자메이카 통다리 구이"];
+            let bhc = ["뿌링클", "맛초킹"];
+            let kfc = ["핫크리스피", "블랙라벨"];
+            $('.brand').change(function () {
+                let sel = $(this).val();
+                if (sel == 1) {
+                    $('.op').remove();
+                    $.each(kyochon, function (i, item) {
+                        $('.menu').append(`<option class="op">${item}</option>`);
+                    });
+                }
+                else if (sel == 2) {
+                    $('.op').remove();
+                    $.each(nene, function (i, item) {
+                        $('.menu').append(`<option class="op">${item}</option>`);
+                    });
+                }
+                else if (sel == 3) {
+                    $('.op').remove();
+                    $.each(bbq, function (i, item) {
+                        $('.menu').append(`<option class="op">${item}</option>`);
+                    });
+                }
+                else if (sel == 4) {
+                    $('.op').remove();
+                    $.each(bhc, function (i, item) {
+                        $('.menu').append(`<option class="op">${item}</option>`);
+                    });
+                }
+                else if (sel == 5) {
+                    $('.op').remove();
+                    $.each(kfc, function (i, item) {
+                        $('.menu').append(`<option class="op">${item}</option>`);
+                    });
+                }
+            })
+        })
+
+        function isPhone() {
+            var regExp = /[01](0|1|6|7|8|9)[-](\d{3}|\d{4})[-]\d{4}$/;
+        }
+
+        function hey() {
+            let brand_choice = $('#inputGroupSelect01 option:selected').text();
+            let menu_choice = $('#inputGroupSelect02 option:selected').text();
+            let name = $('input[type=text]:eq(0)').val();
+            let address = $('input[type=text]:eq(1)').val();
+            let phone = $('input[type=text]:eq(2)').val();
+            if (brand_choice == '브랜드를 선택해 주세요.') {
+                alert(brand_choice);
+            }
+            else if (menu_choice == '메뉴를 선택해 주세요.') {
+                alert(menu_choice);
+            }
+            else if (name == '') {
+                alert('이름을 입력해 주세요.');
+            }
+            else if (address == '') {
+                alert('주소를 입력해 주세요.');
+            }
+            else if (phone == '') {
+                alert('전화번호를 입력해 주세요.');
+            }
+            else if (!isPhone(phone)) {
+                alert('올바른 전화번호가 아닙니다. \n010-0000-0000 형식으로 입력해 주세요!');
+            }
+            else {
+                alert('주문이 완료되었습니다.');
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="https://rereco.co/wp-content/uploads/2019/01/gyochon_menu2.jpg" alt="교촌치킨">
+
+        <h1>오늘 저녁은 치킨 <span class="price">가격 = 무료</span></h1>
+
+        <p>먹고 싶은 치킨을 고르기만 하면 된다!!!</p>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">브랜드</label>
+            </div>
+            <select class="custom-select brand" id="inputGroupSelect01">
+                <option selected>브랜드를 선택해 주세요.</option>
+                <option value="1">교촌치킨</option>
+                <option value="2">네네치킨</option>
+                <option value="3">BBQ</option>
+                <option value="4">BHC</option>
+                <option value="5">KFC</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect02">메뉴</label>
+            </div>
+            <select class="custom-select menu" id="inputGroupSelect02">
+                <option selected>메뉴를 선택해 주세요.</option>
+            </select>
+        </div>
+
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">주문자 이름</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                placeholder="이름을 입력해 주세요.">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">주소</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                placeholder="주소를 입력해 주세요.">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">전화번호</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                placeholder="010-XXXX-XXXX">
+        </div>
+        <div class="button">
+            <button id="blank-alert" onclick="hey()" type="submit" class="btn btn-primary">주문하기</button>
+        </div>
+    </div>
+</body>
+
+</html>
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+
