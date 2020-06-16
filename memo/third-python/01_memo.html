@@ -50,6 +50,7 @@
             padding: 50px;
             border: black solid;
             border-radius: 5px;
+            display : none;
         }
     </style>
     <script>
@@ -75,16 +76,18 @@
                 success: function (response) {
                     let articles = response["articles"]
                     for (let i =0; i < articles.length; i++) {
-                    $('#card-box').append(`<div class="card">
-                <img class="card-img-top"
+                    $('#card-box').append(`
+                    <div class="card">
+                    <img class="card-img-top"
                     src=${articles[i]['image']}
                     alt="Card image cap">
-                <div class="card-body">
-                    <a href="#" class="card-title" >${articles[i]['title']}</a>
-                    <p class="card-text">${articles[i]['comment']}</p>
-                    <p class="card-text comment">${articles[i]['desc']}</p>
-                </div>
-            </div>`)
+                        <div class="card-body">
+                        <a href="#" class="card-title" >${articles[i]['title']}</a>
+                        <p class="card-text">${articles[i]['comment']}</p>
+                        <p class="card-text comment">${articles[i]['desc']}</p>
+                        </div>
+                    </div>
+            `)
                     console.log(articles[i]) }
                 }
             });

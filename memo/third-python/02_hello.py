@@ -8,3 +8,4 @@ rows = rjson['RealtimeCityAir']['row']
 for i in rows:
     print(i['MSRSTE_NM'])
     print(i['IDEX_MVL'])
+
