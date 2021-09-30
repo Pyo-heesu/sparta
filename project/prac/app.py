@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
 
 ## HTML을 주는 부분
+## test
 @app.route('/')
 def home():
    return render_template('index.html')
