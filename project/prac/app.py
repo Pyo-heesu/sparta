@@ -3,6 +3,7 @@ app = Flask(__name__)
 
 ## HTML을 주는 부분
 ## test
+## test2
 @app.route('/')
 def home():
    return render_template('index.html')
